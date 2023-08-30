@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bQONKjhXIMYeafbMvRWz6QAjOuDJzTpmlnisPxiO98g=",
+  "Hash": "gXeAnkcd42eSEAG/4r4woXWaQq+qNWwK5Rtaez6yb3o=",
   "Source": "ConroeISDInterview",
   "BasePath": "_content/ConroeISDInterview",
   "Mode": "Default",
@@ -49,6 +49,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\coby\\Desktop\\Git\\ConroeISDInterview\\ConroeISDInterview\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ConroeISDInterview.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\coby\\Desktop\\Git\\ConroeISDInterview\\ConroeISDInterview\\wwwroot\\css\\mvc-grid\\fonts\\grid-glyphs.woff",
+      "SourceId": "ConroeISDInterview",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\coby\\Desktop\\Git\\ConroeISDInterview\\ConroeISDInterview\\wwwroot\\",
+      "BasePath": "_content/ConroeISDInterview",
+      "RelativePath": "css/mvc-grid/fonts/grid-glyphs.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\mvc-grid\\fonts\\grid-glyphs.woff"
+    },
+    {
+      "Identity": "C:\\Users\\coby\\Desktop\\Git\\ConroeISDInterview\\ConroeISDInterview\\wwwroot\\css\\mvc-grid\\mvc-grid.css",
+      "SourceId": "ConroeISDInterview",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\coby\\Desktop\\Git\\ConroeISDInterview\\ConroeISDInterview\\wwwroot\\",
+      "BasePath": "_content/ConroeISDInterview",
+      "RelativePath": "css/mvc-grid/mvc-grid.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\mvc-grid\\mvc-grid.css"
     },
     {
       "Identity": "C:\\Users\\coby\\Desktop\\Git\\ConroeISDInterview\\ConroeISDInterview\\wwwroot\\css\\site.css",

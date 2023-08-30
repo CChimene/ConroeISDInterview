@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\ConroeISDInterview.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\coby\\Desktop\\Git\\ConroeISDInterview\\ConroeISDInterview\\wwwroot\\css\\mvc-grid\\fonts\\grid-glyphs.woff",
+      "PackagePath": "staticwebassets\\css\\mvc-grid\\fonts\\grid-glyphs.woff"
+    },
+    {
+      "Id": "C:\\Users\\coby\\Desktop\\Git\\ConroeISDInterview\\ConroeISDInterview\\wwwroot\\css\\mvc-grid\\mvc-grid.css",
+      "PackagePath": "staticwebassets\\css\\mvc-grid\\mvc-grid.css"
+    },
+    {
       "Id": "C:\\Users\\coby\\Desktop\\Git\\ConroeISDInterview\\ConroeISDInterview\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

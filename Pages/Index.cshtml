@@ -7,9 +7,11 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    <h3>@Model.Message</h3>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a> @DateTime.Now .</p>
-    <form><p>Click "Choose File" button to upload the payroll extract:</p>
-    <input type="file" id="inputFile" name="filename"><br>
-    <input type="submit">
+    <form method="post" enctype="multipart/form-data">
+        <p>Click "Choose File" button to upload the payroll extract:</p>
+        <input type="file" name="fileName"><br>
+        <input type="submit" asp-page-handler="upload">
     </form>
 </div>
