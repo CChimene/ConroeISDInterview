@@ -2,11 +2,8 @@
 using System.Runtime.ConstrainedExecution;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Data;
+using System.Web;
 using System.Text;
-using System.Configuration;
-using System.Data.SqlClient;
-using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 namespace ConroeISDInterview.Pages;
 
@@ -35,7 +32,21 @@ public class IndexModel : PageModel
                 Message = "File is not in the correct format (.csv)";
             }
             else{
-                Message = "File is good";
+                var output = new StringBuilder();
+                string[] headers;
+                using(var reader = new StreamReader(fileName.OpenReadStream())){
+                    headers = reader.ReadLine().Split(',');
+                    if(headers.Length != 4){
+                        Message = "File does not contain the correct number of columns";
+                    }
+                    else{
+                        while(!reader.EndOfStream){
+                        output.Append(reader.ReadLine());
+                        }
+                        Message = output.ToString();
+                    }
+                    
+                }
             }
 
         }
