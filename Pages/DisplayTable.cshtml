@@ -1,4 +1,23 @@
 @page
 @model DisplayTableModel
 
-<h3>This is a test</h3>
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@using NonFactors.Mvc.Grid
+@{
+    Layout = null;
+}
+ 
+<!DOCTYPE html>
+ 
+<html>
+<body>
+    @(Html.Grid(Model.PayrollRecords).Build(columns =>
+        {
+            columns.Add(model => model.EmployeeID).Titled("Employee ID");
+            columns.Add(model => model.FirstName).Titled("First Name");
+            columns.Add(model => model.LastName).Titled("Last Name");
+            columns.Add(model => model.PayrollError).Titled("Payroll Error");
+        })
+    )
+</body>
+</html>

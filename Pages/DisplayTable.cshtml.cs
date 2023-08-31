@@ -1,17 +1,23 @@
+using ConroeISDInterview.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ConroeISDInterview.Pages;
 
 public class DisplayTableModel : PageModel
 {
-    private readonly ILogger<DisplayTableModel> _logger;
+    public DBcntxt Context;
 
-    public DisplayTableModel(ILogger<DisplayTableModel> logger)
+    public List<PayrollRecord> PayrollRecords {get; set;}
+
+    public DisplayTableModel(DBcntxt _context)
     {
-        _logger = logger;
+        Context = _context;
     }
 
     public void OnGet()
     {
+        PayrollRecords = Context.PayrollRecords.ToList<PayrollRecord>();
     }
+
+    
 }
