@@ -12,6 +12,7 @@ namespace ConroeISDInterview.Pages;
 
 public class IndexModel : PageModel
 {
+    private readonly ILogger<IndexModel> _logger;
     public string Message {get; set;} = "Initial Value";
     public readonly long emptyFileSize = 48;
 
@@ -19,11 +20,9 @@ public class IndexModel : PageModel
 
     public DataTable outputTable = new DataTable();
 
-    public DBcntxt Context;
-
-    public IndexModel(DBcntxt _context)
+    public IndexModel(ILogger<IndexModel> logger)
     {
-        Context = _context;
+        _logger = logger;
     }
 
     public void OnGet()
@@ -51,17 +50,20 @@ public class IndexModel : PageModel
                         Message = row[0];
                     }
                     else{
+                       foreach(string header in row){
+                            outputTable.Columns.Add(header);
+                       }
                        while(!reader.EndOfStream){
                             row = reader.ReadLine().Split(',');
-                            Context.Add(new PayrollRecord{
-                                EmployeeID = Int32.Parse(row[0]),
-                                FirstName = row[1],
-                                LastName = row[2],
-                                PayrollError = Convert.ToBoolean(row[3])
-                            });
+                            Console.WriteLine(row.ToString);
+                            DataRow dr = outputTable.NewRow();
+                            for (int i = 0; i < numColumns; i++)
+                            {
+                                dr[i] = row[i];
+                            }
+                            outputTable.Rows.Add(dr);
+                            
                        } 
-                       Context.SaveChanges();
-                       Redirect("/DisplayTable");
                     }
                 }
             }
