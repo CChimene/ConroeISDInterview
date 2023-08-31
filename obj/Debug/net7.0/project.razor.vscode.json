@@ -24060,6 +24060,11 @@
       "FilePath": "c:\\Users\\coby\\Desktop\\Git\\ConroeISDInterview\\ConroeISDInterview\\Pages\\Shared\\_Layout.cshtml",
       "TargetPath": "Pages\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\coby\\Desktop\\Git\\ConroeISDInterview\\ConroeISDInterview\\Pages\\DisplayTable.cshtml",
+      "TargetPath": "Pages\\DisplayTable.cshtml",
+      "FileKind": "mvc"
     }
   ]
 }

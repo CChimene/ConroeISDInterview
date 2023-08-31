@@ -1,3 +1,5 @@
+namespace ConroeISDInterview.Models;
+
 public class PayrollRecord
 {
     public int EmployeeID { get; set; }
