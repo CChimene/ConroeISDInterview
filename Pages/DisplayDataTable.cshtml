@@ -1,0 +1,41 @@
+@page
+@model DisplayDataTableModel
+@using ConroeISDInterview.Models
+@{
+
+}
+ 
+<!DOCTYPE html>
+ 
+<html>
+<body>
+    <form id="Form1" method="post" runat="server">
+
+        <table>
+            <tr>
+                <th>
+                    Employee ID
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Payroll Error
+                </th>
+            </tr>
+            @foreach(PayrollRecord pr in @Model.formatted){
+                <tr>
+                    <td>@pr.EmployeeID</td>
+                    <td>@pr.FirstName</td>
+                    <td>@pr.LastName</td>
+                    <td>@pr.PayrollError</td>
+                </tr>
+            }
+        </table>
+
+    </form>
+</body>
+</html>

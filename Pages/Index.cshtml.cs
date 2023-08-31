@@ -7,6 +7,11 @@ using System.Text;
 using ConroeISDInterview.Models;
 using System.Data;
 using System.Xml;
+using Microsoft.AspNetCore.Session;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Microsoft.Extensions.Primitives;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace ConroeISDInterview.Pages;
 
@@ -29,7 +34,8 @@ public class IndexModel : PageModel
     {
 
     }
-
+    /*Event handler for the submit button on the main page, grabs the submitted file and checks for errors before sending it
+    as a string to be formatted into a table on DisplayDataTable*/
     public void OnPostUpload(IFormFile fileName){
         try{
             //check if the file has data
@@ -47,23 +53,18 @@ public class IndexModel : PageModel
                     row = reader.ReadLine().Split(',');
                     //Read in the first line and verify the file has the correct number of columns
                     if(row.Length != numColumns){
-                        Message = row[0];
+                        Message = "File contains the wrong number of columns";
                     }
                     else{
                        foreach(string header in row){
                             outputTable.Columns.Add(header);
                        }
                        while(!reader.EndOfStream){
-                            row = reader.ReadLine().Split(',');
-                            Console.WriteLine(row.ToString);
-                            DataRow dr = outputTable.NewRow();
-                            for (int i = 0; i < numColumns; i++)
-                            {
-                                dr[i] = row[i];
-                            }
-                            outputTable.Rows.Add(dr);
-                            
-                       } 
+                            output.Append(reader.ReadLine()+ "\n");
+                       }
+                       //Pass the information scraped from the file as a string to a page that will format it into a table to be displayed
+                       HttpContext.Session.SetString("data", output.ToString());
+                       Response.Redirect("/displayDataTable");
                     }
                 }
             }
