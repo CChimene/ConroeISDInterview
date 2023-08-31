@@ -13,6 +13,11 @@ public class DisplayDataTableModel : PageModel
     public string Message = "";
     public string[] entries;
     public List<PayrollRecord> formatted;
+    public bool idSort = true;
+    public bool firstNameSort = true;
+    public bool lastNameSort = true;
+    public bool payrollErrorSort = true;
+
 
     public DisplayDataTableModel()
     {
@@ -45,5 +50,38 @@ public class DisplayDataTableModel : PageModel
         return payrollRecords;
     }
 
+    public void sortById(){
+        /*List<PayrollRecord> temp = formatted;
+
+        temp.Sort((x,y) => x.EmployeeID.CompareTo(y.EmployeeID));
+        if(!idSort){
+            temp.Reverse();
+        }
+        idSort = !idSort;
+        formatted = temp;*/
+    }
+
+    public void sortByFirstName(){
+        formatted.Sort((x,y) => x.FirstName.CompareTo(y.FirstName));
+        if(!firstNameSort){
+            formatted.Reverse();
+        }
+        firstNameSort = !firstNameSort;
+    }
+
+    public void sortByLastName(){
+        formatted.Sort((x,y) => x.LastName.CompareTo(y.LastName));
+        if(!lastNameSort){
+            formatted.Reverse();
+        }
+        lastNameSort = !lastNameSort;
+    }
     
+    public void sortByPayrollError(){
+        formatted.Sort((x,y) => x.PayrollError.CompareTo(y.PayrollError));
+        if(!payrollErrorSort){
+            formatted.Reverse();
+        }
+        payrollErrorSort = !payrollErrorSort;
+    }
 }

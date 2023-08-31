@@ -18,7 +18,7 @@ namespace ConroeISDInterview.Pages;
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
-    public string Message {get; set;} = "Initial Value";
+    public string Message {get; set;} = "";
     public readonly long emptyFileSize = 48;
 
     public readonly int numColumns = 4;
