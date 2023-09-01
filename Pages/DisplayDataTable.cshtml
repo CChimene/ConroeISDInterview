@@ -10,15 +10,15 @@
 <html>
 <body>
     <div class="text-center">
+        <p>@Model.Message</p>
     <form id="Form1" method="post" runat="server">
 
         <table>
             <tr>
                 <th>
-                    Employee ID
+                    @Html.ActionLink("Employee ID", "DisplayDataTable", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
                 </th>
                 <th>
-                    First Name
                 </th>
                 <th>
                     Last Name
@@ -27,6 +27,7 @@
                     Payroll Error
                 </th>
             </tr>
+            <tbody>
             @foreach(PayrollRecord pr in @Model.formatted){
                 <tr>
                     <td>@pr.EmployeeID</td>
@@ -35,9 +36,12 @@
                     <td>@pr.PayrollError</td>
                 </tr>
             }
+            </tbody>
         </table>
 
     </form>
+    <p>@Model.Message</p>
     </div>
 </body>
 </html>
+
