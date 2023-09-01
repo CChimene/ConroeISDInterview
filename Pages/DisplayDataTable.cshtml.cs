@@ -17,8 +17,6 @@ public class DisplayDataTableModel : PageModel
     public bool firstNameSort = true;
     public bool lastNameSort = true;
     public bool payrollErrorSort = true;
-    private bool IsSortedAscending;
-    private string CurrentSortColumn;
 
 
     public DisplayDataTableModel()
@@ -52,13 +50,18 @@ public class DisplayDataTableModel : PageModel
         return payrollRecords;
     }
 
-    public void SortById(){
-        formatted = formatted.OrderBy(x => x.EmployeeID).ToList();
+    public void sortById(){
+        /*List<PayrollRecord> temp = formatted;
+
+        temp.Sort((x,y) => x.EmployeeID.CompareTo(y.EmployeeID));
+        if(!idSort){
+            temp.Reverse();
+        }
         idSort = !idSort;
-        Message = "SORT";
+        formatted = temp;*/
     }
 
-    public void SortByFirstName(){
+    public void sortByFirstName(){
         formatted.Sort((x,y) => x.FirstName.CompareTo(y.FirstName));
         if(!firstNameSort){
             formatted.Reverse();
@@ -66,7 +69,7 @@ public class DisplayDataTableModel : PageModel
         firstNameSort = !firstNameSort;
     }
 
-    public void SortByLastName(){
+    public void sortByLastName(){
         formatted.Sort((x,y) => x.LastName.CompareTo(y.LastName));
         if(!lastNameSort){
             formatted.Reverse();
@@ -74,53 +77,11 @@ public class DisplayDataTableModel : PageModel
         lastNameSort = !lastNameSort;
     }
     
-    public void SortByPayrollError(){
+    public void sortByPayrollError(){
         formatted.Sort((x,y) => x.PayrollError.CompareTo(y.PayrollError));
         if(!payrollErrorSort){
             formatted.Reverse();
         }
         payrollErrorSort = !payrollErrorSort;
-    }
-
-    public string GetSortStyle(string columnName)
-    {
-        if (CurrentSortColumn != columnName)
-        {
-            return string.Empty;
-        }
-        if (IsSortedAscending)
-        {
-            return "▲";
-        }
-        else
-        {
-            return "▼";
-        }
-    }
-
-    public void SortTable(string columnName)
-    {
-        Console.WriteLine(columnName);
-        if (columnName != CurrentSortColumn)
-        {
-            //We need to force order by descending on the new column
-            formatted = formatted.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
-            CurrentSortColumn = columnName;
-            IsSortedAscending = true;
-
-        }
-        else //Sorting against same column but in different direction
-        {
-            if (IsSortedAscending)
-            {
-                formatted = formatted.OrderByDescending(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
-            }
-            else
-            {
-                formatted= formatted.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
-            }
-
-            IsSortedAscending = !IsSortedAscending;
-        }
     }
 }

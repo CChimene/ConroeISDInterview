@@ -64,7 +64,7 @@ public class IndexModel : PageModel
                        }
                        //Pass the information scraped from the file as a string to a page that will format it into a table to be displayed
                        HttpContext.Session.SetString("data", output.ToString());
-                       Response.Redirect("/PayrollTable");
+                       Response.Redirect("/displayDataTable");
                     }
                 }
             }
